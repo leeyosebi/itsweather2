@@ -16,7 +16,7 @@ async def get_weather_data():
         'numOfRows': '100000',
         'dataType': 'JSON',
         'base_date': today_date,
-        'base_time': '1800',
+        'base_time': '1100',
         'nx': '61',
         'ny': '125'
     }
@@ -72,7 +72,7 @@ async def send_daily_message():
         f"\U0001F64B퇴근날씨입니다. 안녕히가세요.\U0001F64B\n"
         f"===========================\n"
         f"\U0001F4CD현재날씨입니다\U0001F4CD\n"
-        f"**온도**: {t1h_value}°C\n"
+        f"온도: {t1h_value}°C\n"
         f"체감온도: {wind_chill_tmp}°C\n"
         f"습도: {reh_value}%\n"
         f"바람세기: {wsd_status}\n"
