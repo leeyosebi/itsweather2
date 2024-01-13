@@ -16,7 +16,7 @@ async def get_weather_data():
         'numOfRows': '100000',
         'dataType': 'JSON',
         'base_date': today_date,
-        'base_time': '1100',
+        'base_time': '1700',
         'nx': '61',
         'ny': '125'
     }
