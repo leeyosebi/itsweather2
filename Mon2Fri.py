@@ -51,6 +51,8 @@ def calculate_wind_chill_temperature(t1h_value, wsd_value):
     return round(13.12 + 0.6215 * num0_1 - 11.37 * (3.6 * num0_2) ** 0.16 + 0.3965 * (3.6 * num0_2) ** 0.16 * num0_1)
 
 async def send_daily_message():
+    today_date_message = datetime.today().strftime('%dth %b, %Y')
+    
     weather_data = await get_weather_data()
 
     pty_value = weather_data[0]["obsrValue"]  # 강수형태 코드값
@@ -69,16 +71,20 @@ async def send_daily_message():
     bot = telegram.Bot(token=token)
 
     message = (
+        f"{today_date_message}\n"
+        f"\n"
         f"\U0001F64B퇴근날씨입니다. 안녕히가세요.\U0001F64B\n"
-        f"===========================\n"
+        f"\n"
         f"\U0001F4CD현재날씨입니다\U0001F4CD\n"
+        f"------------------------------\n"
         f"온도: {t1h_value}°C\n"
         f"체감온도: {wind_chill_tmp}°C\n"
         f"습도: {reh_value}%\n"
         f"바람세기: {wsd_status}\n"
         f"1시간 강수량: {rn1_value}%\n"
         f"강수형태: {pty_status}\n"
-        f"===========================\n"
+        f"------------------------------\n"
+        f"\n"
         f"*날씨 정보는 6:00pm에 안내됩니다.\n"
         f"*얼른 퇴근하세요\U0001F647"
     )
