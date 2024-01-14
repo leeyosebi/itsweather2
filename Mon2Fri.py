@@ -51,7 +51,7 @@ def calculate_wind_chill_temperature(t1h_value, wsd_value):
     return round(13.12 + 0.6215 * num0_1 - 11.37 * (3.6 * num0_2) ** 0.16 + 0.3965 * (3.6 * num0_2) ** 0.16 * num0_1)
 
 async def send_daily_message():
-    today_date_message = datetime.today().strftime('%dth %b, %Y')
+    today_date_message = datetime.today().strftime('%dth %b, %Y (%a)')
     
     weather_data = await get_weather_data()
 
