@@ -4,6 +4,7 @@ import json
 import asyncio
 import telegram
 import nest_asyncio
+import emoji
 
 nest_asyncio.apply()
 
@@ -70,23 +71,30 @@ async def send_daily_message():
     chat_id = 6419577835
     bot = telegram.Bot(token=token)
 
+    #emoji
+    man_raising_hand = emoji.emojize(':man_raising_hand:')
+    woman_raising_hand = emoji.emojize(':woman_raising_hand:')
+    round_pushpin = emoji.emojize(':round_pushpin:')
+    man_bowing = emoji.emojize(':man_bowing:')
+    woman_bowing = emoji.emojize(':woman_bowing:')
+
     message = (
         f"{today_date_message}\n"
         f"\n"
-        f"\U0001F64B퇴근날씨입니다. 안녕히가세요.\U0001F64B\n"
+        f"{man_raising_hand}퇴근날씨입니다. 안녕히가세요.{woman_raising_hand}\n"
         f"\n"
-        f"\U0001F4CD현재날씨입니다\U0001F4CD\n"
+        f"{round_pushpin}현재날씨에요.{round_pushpin}\n"
         f"------------------------------\n"
-        f"온도: {t1h_value}°C\n"
-        f"체감온도: {wind_chill_tmp}°C\n"
-        f"습도: {reh_value}%\n"
-        f"바람세기: {wsd_status}\n"
-        f"1시간 강수량: {rn1_value}%\n"
-        f"강수형태: {pty_status}\n"
+        f"ㅤㅤ온도ㅤ:ㅤ{t1h_value}°C\n"
+        f"체감온도ㅤ:ㅤ{wind_chill_tmp}°C\n"
+        f"ㅤㅤ습도ㅤ:ㅤ{reh_value}%\n"
+        f"바람세기ㅤ:ㅤ{wsd_status}\n"
+        f"ㅤ강수량ㅤ:ㅤ{rn1_value}%\n"
+        f"강수형태ㅤ:ㅤ{pty_status}\n"
         f"------------------------------\n"
         f"\n"
-        f"*날씨 정보는 6:00pm에 안내됩니다.\n"
-        f"*얼른 퇴근하세요\U0001F647"
+        f"{round_pushpin}날씨는 매일6:00pm에 안내돼요.\n"
+        f"{man_bowing}얼른 퇴근하세요{woman_bowing}"
     )
 
     await bot.send_message(chat_id, message)
