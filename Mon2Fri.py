@@ -16,7 +16,7 @@ async def get_weather_data():
         'pageNo': '1',
         'numOfRows': '100000',
         'dataType': 'JSON',
-        'base_date': today_date,
+        'base_date': 20240114,
         'base_time': '1700',
         'nx': '61',
         'ny': '125'
@@ -71,7 +71,7 @@ async def send_daily_message():
     chat_id = 6419577835
     bot = telegram.Bot(token=token)
 
-    #emoji
+    #emoji blog.limcm.kr/148
     man_raising_hand = emoji.emojize(':man_raising_hand:')
     woman_raising_hand = emoji.emojize(':woman_raising_hand:')
     round_pushpin = emoji.emojize(':round_pushpin:')
@@ -81,9 +81,9 @@ async def send_daily_message():
     message = (
         f"{today_date_message}\n"
         f"\n"
-        f"{man_raising_hand}퇴근날씨입니다. 안녕히가세요.{woman_raising_hand}\n"
+        f"{man_raising_hand}안녕하세요, 퇴근날씨입니다{woman_raising_hand}\n"
         f"\n"
-        f"{round_pushpin}현재날씨에요.{round_pushpin}\n"
+        f"{round_pushpin}현재날씨에요{round_pushpin}\n"
         f"------------------------------\n"
         f"ㅤㅤ온도ㅤ:ㅤ{t1h_value}°C\n"
         f"체감온도ㅤ:ㅤ{wind_chill_tmp}°C\n"
@@ -93,7 +93,7 @@ async def send_daily_message():
         f"강수형태ㅤ:ㅤ{pty_status}\n"
         f"------------------------------\n"
         f"\n"
-        f"{round_pushpin}날씨는 매일6:00pm에 안내돼요.\n"
+        f"{round_pushpin}날씨는 매일 6:00pm에 안내돼요\n"
         f"{man_bowing}얼른 퇴근하세요{woman_bowing}"
     )
 
