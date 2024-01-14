@@ -10,14 +10,15 @@ nest_asyncio.apply()
 
 async def get_weather_data():
     today_date = datetime.today().strftime('%Y%m%d')
+    print(today_date)
     url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst'
     params = {
         'serviceKey': 'fxIHC+oWuFQO+vKhXgirlIRZ7lwhBv4ztwiA3Koy8ojXHjfpoUZMA2NtNVrpGGKWHqI2WgDjNkcsFgWMkvFLow==',
         'pageNo': '1',
         'numOfRows': '100000',
         'dataType': 'JSON',
-        'base_date': 20240114,
-        'base_time': '1700',
+        'base_date': today_date,
+        'base_time': '0000',
         'nx': '61',
         'ny': '125'
     }
@@ -53,6 +54,7 @@ def calculate_wind_chill_temperature(t1h_value, wsd_value):
 
 async def send_daily_message():
     today_date_message = datetime.today().strftime('%dth %b, %Y (%a)')
+    print(today_date_message)
     
     weather_data = await get_weather_data()
 
