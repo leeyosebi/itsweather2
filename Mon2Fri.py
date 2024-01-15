@@ -13,7 +13,7 @@ async def get_weather_data():
     print(today_date)
     url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst'
     params = {
-        'serviceKey': 'fxIHC+oWuFQO+vKhXgirlIRZ7lwhBv4ztwiA3Koy8ojXHjfpoUZMA2NtNVrpGGKWHqI2WgDjNkcsFgWMkvFLow==',
+        'serviceKey': '',
         'pageNo': '1',
         'numOfRows': '100000',
         'dataType': 'JSON',
@@ -69,8 +69,8 @@ async def send_daily_message():
     pty_status = get_weather_status(pty_value)
     wsd_status = get_wind_speed_status(wsd_value)
 
-    token = "6632520987:AAELlUGyyefA7VgUzkNbMKwMioSypXB4FeY"
-    chat_id = 6419577835
+    token = ":"
+    chat_id = 
     bot = telegram.Bot(token=token)
 
     #emoji blog.limcm.kr/148
